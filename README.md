@@ -1,120 +1,168 @@
 # AI Workflow Planner Pro
 
-A modern web application that leverages AI to create detailed, structured workflow plans with multiple export options and voice control capabilities.
+A professional-grade, AI-powered web application that helps users create detailed workflow plans with automatically generated steps, substeps, and microsteps. The application features a modern, responsive interface with voice command support and multiple export formats.
 
-## Features
+## Key Features
 
-### Core Functionality
-- AI-powered workflow generation with customizable settings
-- Multi-step personalization options
-- Voice command support
-- Multiple export formats (PDF, Word, Excel, CSV, Markdown)
-- Save and load workflow configurations
+### Task Management
+- Intuitive task input with title and description
+- Real-time task list updates
+- Quick task removal
+- Voice command support for hands-free operation
 
-### Workflow Settings
-- Skill level adaptation (Beginner, Intermediate, Advanced)
-- Priority level management
-- Pre-built workflow templates:
+### AI-Powered Workflow Generation
+- OpenAI GPT-4 integration for intelligent workflow creation
+- Structured output organization:
+  - Main steps (numbered)
+  - Substeps (lettered)
+  - Microsteps (roman numerals)
+  - Detailed descriptions for each level
+
+### Workflow Customization
+- Skill Level Adaptation:
+  - Beginner: Detailed step-by-step instructions
+  - Intermediate: Balanced guidance
+  - Advanced: High-level strategic overview
+- Priority-based Organization:
+  - Low/Medium/High priority settings
+  - Task dependency management
+- Template Selection:
   - Project Management
   - Event Planning
-  - Development
+  - Software Development
+- Task Dependencies:
+  - Sequential task organization
+  - Parallel task support
 
-### Document Generation
-- Simple PDF export
-- Interactive PDF with clickable elements
-- Microsoft Word (DOCX) export
-- Excel spreadsheet export
-- CSV format for data portability
-- Markdown format for documentation
+### Document Export Options
+- Interactive PDF
+  - Collapsible sections
+  - Clickable navigation
+  - Modern formatting
+- Simple PDF
+  - Clean, professional layout
+  - Print-optimized
+- Microsoft Word (DOCX)
+  - Editable format
+  - Maintained formatting
+- Excel Spreadsheet
+  - Organized task breakdown
+  - Filterable columns
+- CSV Format
+  - Universal compatibility
+  - Data analysis ready
+- Markdown
+  - Version control friendly
+  - Easy to edit
 
-### Voice Commands
-- "Add task [title]"
-- "Add description [text]"
-- "Generate workflow"
-- "Download [format]"
-- "Clear tasks"
-- "Save/Load workflow"
+### Voice Command Support
+The application supports natural voice commands for common actions:
+- "Add task [title]" - Creates a new task
+- "Add description [text]" - Adds description to current task
+- "Generate workflow" - Starts workflow generation
+- "Download [format]" - Exports in specified format
+  - Supported formats: PDF, Word, Excel, CSV, Markdown
+- "Clear tasks" - Removes all tasks
+- "Save workflow" - Saves current configuration
+- "Load workflow" - Opens file picker for loading
+
+### Save/Load Functionality
+- Save complete workflow configurations
+- Load previously saved workflows
+- Maintains all settings and customizations
+
+### Modern UI Features
+- Responsive design
+- Sidebar configuration panel
+- Real-time visual feedback
+- Loading indicators
+- Hover effects and animations
+- Keyboard shortcuts
+- Tooltip guides
 
 ## Technical Stack
 
 ### Frontend
-- HTML5, CSS3, JavaScript
+- HTML5 & CSS3
+- Modern JavaScript (ES6+)
 - Bootstrap 5.3.2
-- Bootstrap Icons 1.11.2
+- Bootstrap Icons
 - Web Speech API for voice commands
 
 ### Backend
-- Node.js
-- Express.js
-- OpenAI API for workflow generation
-- Document generation libraries:
-  - PDFKit
-  - docx
-  - ExcelJS
-  - Puppeteer (for interactive PDFs)
-  - marked (for Markdown)
+- Node.js with Express
+- OpenAI GPT-4 API
+- Document Generation:
+  - PDFKit & Puppeteer for PDFs
+  - docx for Word documents
+  - ExcelJS for spreadsheets
+  - marked for Markdown
+- CORS enabled for API access
 
 ## Setup
 
-1. Clone the repository
-2. Create a `.env` file in the root directory with your OpenAI API key:
+1. Clone the repository and create a `.env` file:
    ```
    OPENAI_API_KEY=your_api_key_here
+   PORT=3000 (optional, defaults to 3000)
    ```
-3. Install dependencies:
+
+2. Install dependencies:
    ```bash
    npm install
    ```
-4. Start the server:
+
+3. Start the server:
    ```bash
+   # Production
    npm start
+
+   # Development with auto-reload
+   npm run dev
    ```
-5. Access the application at `http://localhost:3000`
 
-## Environment Variables
+4. Access the application:
+   ```
+   http://localhost:3000
+   ```
 
-- `OPENAI_API_KEY`: Your OpenAI API key
-- `PORT`: Server port (default: 3000)
+## System Requirements
 
-## Project Structure
+### Server
+- Node.js 14.x or higher
+- NPM 6.x or higher
+- OpenAI API key
+- 2GB RAM minimum
+- 1GB free disk space
 
-```
-.
-├── public/
-│   ├── index.html    # Main frontend interface
-│   └── styles/       # CSS files
-├── src/
-│   └── server.js     # Backend server implementation
-├── temp/            # Temporary storage for generated files
-├── .env             # Environment variables
-├── package.json     # Project dependencies
-└── README.md        # Project documentation
-```
+### Client
+- Modern web browser with JavaScript enabled
+- Microphone access for voice commands
+- Stable internet connection
+- Minimum screen resolution: 1280x720
 
-## Usage
+## Browser Support
+- Chrome 90+
+- Firefox 88+
+- Safari 14+
+- Edge 90+
 
-1. Enter task details in the main form
-2. Configure workflow settings in the sidebar:
-   - Select skill level
-   - Choose priority level
-   - Pick a workflow template
-3. Add multiple tasks as needed
-4. Use voice commands (optional) for quick actions
-5. Generate and export the workflow in your preferred format
-6. Save your workflow configuration for later use
+## Security Features
+- Environment variable protection
+- CORS configuration
+- Input validation
+- Error handling
+- Secure file operations
 
-## Voice Control
-
-Press the microphone button or use the spacebar to activate voice commands. Available commands are displayed in the tooltip when hovering over the microphone button.
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a Pull Request
+## Development
+- Modular code structure
+- Comprehensive error logging
+- Clean code practices
+- Performance optimized
+- Mobile-responsive design
 
 ## License
+MIT License - Feel free to use for personal or commercial projects.
 
-MIT License - feel free to use this project for personal or commercial purposes. 
+## Contributing
+Contributions are welcome! Please read our contributing guidelines before submitting pull requests. 
