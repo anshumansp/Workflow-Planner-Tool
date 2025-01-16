@@ -25,14 +25,10 @@ A professional-grade, AI-powered web application that helps users create detaile
   - Advanced: High-level strategic overview
 - Priority-based Organization:
   - Low/Medium/High priority settings
-  - Task dependency management
 - Template Selection:
   - Project Management
   - Event Planning
   - Software Development
-- Task Dependencies:
-  - Sequential task organization
-  - Parallel task support
 
 ### Document Export Options
 - Interactive PDF

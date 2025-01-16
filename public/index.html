@@ -301,7 +301,7 @@
     <div class="loading">
         <div class="loading-content">
             <div class="spinner-border text-primary mb-3" style="width: 3rem; height: 3rem;" role="status">
-                <span class="visually-hidden">Loading...</span>
+            <span class="visually-hidden">Loading...</span>
             </div>
             <h4 class="mb-2">Generating Workflow</h4>
             <p class="text-muted">Creating your detailed plan with AI assistance...</p>
@@ -361,21 +361,6 @@
                 </div>
             </div>
         </div>
-        <div class="settings-section">
-            <label class="form-label">Task Dependencies</label>
-            <div class="form-check mb-2">
-                <input class="form-check-input" type="checkbox" id="sequentialTasks">
-                <label class="form-check-label" for="sequentialTasks">
-                    <i class="bi bi-arrow-down me-2"></i>Sequential Tasks
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="parallelTasks">
-                <label class="form-check-label" for="parallelTasks">
-                    <i class="bi bi-arrow-left-right me-2"></i>Parallel Tasks
-                </label>
-            </div>
-        </div>
     </div>
 
     <!-- Main Content -->
@@ -384,34 +369,34 @@
             <h1>AI Workflow Planner</h1>
             <p class="text-muted">Create professional workflow plans powered by artificial intelligence</p>
         </div>
-        <div class="card shadow-sm">
-            <div class="card-body">
-                <form id="taskForm" class="mb-4">
-                    <div class="mb-3">
-                        <label for="taskTitle" class="form-label">Task Title</label>
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <form id="taskForm" class="mb-4">
+                            <div class="mb-3">
+                                <label for="taskTitle" class="form-label">Task Title</label>
                         <input type="text" class="form-control" id="taskTitle" placeholder="Enter the main task"
                             required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="taskDescription" class="form-label">Description</label>
+                            </div>
+                            <div class="mb-3">
+                                <label for="taskDescription" class="form-label">Description</label>
                         <textarea class="form-control" id="taskDescription" rows="3"
                             placeholder="Provide detailed information about the task and specific requirements"
                             required></textarea>
-                    </div>
+                            </div>
                     <button type="submit" class="btn btn-primary">
                         <i class="bi bi-plus-lg me-2"></i>Add Task
                     </button>
-                </form>
+                        </form>
 
                 <div id="taskList" class="task-list">
-                    <!-- Tasks will be added here -->
-                </div>
+                            <!-- Tasks will be added here -->
+                            </div>
 
                 <div class="export-section mt-4">
                     <div class="section-title">
                         <i class="bi bi-file-earmark-arrow-down"></i>
                         Export Options
-                    </div>
+                        </div>
                     <div class="export-buttons">
                         <button onclick="generateDocument('pdf')" class="export-button btn">
                             <i class="bi bi-file-pdf text-danger"></i>
@@ -547,8 +532,8 @@
                     priorityLevel: document.getElementById('priorityLevel').value,
                     template: selectedTemplate,
                     dependencies: {
-                        sequential: document.getElementById('sequentialTasks').checked,
-                        parallel: document.getElementById('parallelTasks').checked
+                        sequential: false,
+                        parallel: false
                     }
                 };
 
@@ -705,8 +690,8 @@
                     priorityLevel: document.getElementById('priorityLevel').value,
                     template: selectedTemplate,
                     dependencies: {
-                        sequential: document.getElementById('sequentialTasks').checked,
-                        parallel: document.getElementById('parallelTasks').checked
+                        sequential: false,
+                        parallel: false
                     }
                 }
             };
@@ -738,8 +723,6 @@
                 if (workflowData.settings) {
                     document.getElementById('skillLevel').value = workflowData.settings.skillLevel;
                     document.getElementById('priorityLevel').value = workflowData.settings.priorityLevel;
-                    document.getElementById('sequentialTasks').checked = workflowData.settings.dependencies.sequential;
-                    document.getElementById('parallelTasks').checked = workflowData.settings.dependencies.parallel;
 
                     // Restore template selection
                     if (workflowData.settings.template) {
