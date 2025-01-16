@@ -1,71 +1,120 @@
-# AI Workflow Planner
+# AI Workflow Planner Pro
 
-An AI-powered web application that helps users create detailed workflow plans with automatically generated steps, substeps, and microsteps.
+A modern web application that leverages AI to create detailed, structured workflow plans with multiple export options and voice control capabilities.
 
 ## Features
 
-- Add tasks with titles and descriptions
-- AI-powered workflow generation using OpenAI GPT-4
-- Structured output with:
-  - Main steps (numbered)
-  - Substeps (lettered)
-  - Microsteps (roman numerals)
-  - Detailed descriptions for each level
-- Generate downloadable documents in PDF or DOCX format
-- Clean and responsive user interface
-- Real-time task list updates
-- Loading indicator during AI generation
+### Core Functionality
+- AI-powered workflow generation with customizable settings
+- Multi-step personalization options
+- Voice command support
+- Multiple export formats (PDF, Word, Excel, CSV, Markdown)
+- Save and load workflow configurations
+
+### Workflow Settings
+- Skill level adaptation (Beginner, Intermediate, Advanced)
+- Priority level management
+- Pre-built workflow templates:
+  - Project Management
+  - Event Planning
+  - Development
+
+### Document Generation
+- Simple PDF export
+- Interactive PDF with clickable elements
+- Microsoft Word (DOCX) export
+- Excel spreadsheet export
+- CSV format for data portability
+- Markdown format for documentation
+
+### Voice Commands
+- "Add task [title]"
+- "Add description [text]"
+- "Generate workflow"
+- "Download [format]"
+- "Clear tasks"
+- "Save/Load workflow"
+
+## Technical Stack
+
+### Frontend
+- HTML5, CSS3, JavaScript
+- Bootstrap 5.3.2
+- Bootstrap Icons 1.11.2
+- Web Speech API for voice commands
+
+### Backend
+- Node.js
+- Express.js
+- OpenAI API for workflow generation
+- Document generation libraries:
+  - PDFKit
+  - docx
+  - ExcelJS
+  - Puppeteer (for interactive PDFs)
+  - marked (for Markdown)
 
 ## Setup
 
-1. Create a `.env` file in the root directory with your OpenAI API key:
+1. Clone the repository
+2. Create a `.env` file in the root directory with your OpenAI API key:
    ```
    OPENAI_API_KEY=your_api_key_here
    ```
-
-2. Install dependencies:
+3. Install dependencies:
    ```bash
    npm install
    ```
-
-3. Start the server:
+4. Start the server:
    ```bash
    npm start
    ```
-   Or for development with auto-reload:
-   ```bash
-   npm run dev
-   ```
+5. Access the application at `http://localhost:3000`
 
-4. Access the application:
-   Open your web browser and navigate to `http://localhost:3000`
+## Environment Variables
+
+- `OPENAI_API_KEY`: Your OpenAI API key
+- `PORT`: Server port (default: 3000)
+
+## Project Structure
+
+```
+.
+├── public/
+│   ├── index.html    # Main frontend interface
+│   └── styles/       # CSS files
+├── src/
+│   └── server.js     # Backend server implementation
+├── temp/            # Temporary storage for generated files
+├── .env             # Environment variables
+├── package.json     # Project dependencies
+└── README.md        # Project documentation
+```
 
 ## Usage
 
-1. Add tasks:
-   - Enter task title
-   - Provide detailed description
-   - Click "Add Task"
+1. Enter task details in the main form
+2. Configure workflow settings in the sidebar:
+   - Select skill level
+   - Choose priority level
+   - Pick a workflow template
+3. Add multiple tasks as needed
+4. Use voice commands (optional) for quick actions
+5. Generate and export the workflow in your preferred format
+6. Save your workflow configuration for later use
 
-2. Manage tasks:
-   - View all tasks in the list
-   - Remove tasks using the "Remove" button
+## Voice Control
 
-3. Generate AI workflow:
-   - Click "Download PDF" for PDF format
-   - Click "Download DOCX" for Word format
-   - The AI will automatically organize your tasks into a detailed workflow
+Press the microphone button or use the spacebar to activate voice commands. Available commands are displayed in the tooltip when hovering over the microphone button.
 
-## Technical Details
+## Contributing
 
-- Backend: Node.js with Express
-- AI Integration: OpenAI GPT-4
-- Document Generation: PDFKit and docx
-- Frontend: HTML, CSS (Bootstrap), JavaScript
-- Cross-Origin Resource Sharing (CORS) enabled
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
 
-## Requirements
+## License
 
-- Node.js 14.x or higher
-- OpenAI API key
-- Modern web browser with JavaScript enabled 
+MIT License - feel free to use this project for personal or commercial purposes. 
