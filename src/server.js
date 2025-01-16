@@ -6,8 +6,6 @@ const fs = require("fs");
 const path = require("path");
 const { OpenAI } = require("openai");
 const ExcelJS = require("exceljs");
-const puppeteer = require("puppeteer");
-const marked = require("marked");
 require("dotenv").config();
 
 const app = express();
@@ -18,6 +16,7 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
+// Middleware
 app.use(cors());
 app.use(express.json());
 app.use(express.static("public"));
@@ -164,60 +163,6 @@ function createDOCXDocument(workflow) {
       },
     ],
   });
-}
-
-async function createInteractivePDF(workflow, tempDir, timestamp) {
-  // Convert workflow to HTML with interactive elements
-  const htmlContent = `
-        <!DOCTYPE html>
-        <html>
-        <head>
-            <style>
-                body { font-family: Arial, sans-serif; margin: 40px; }
-                .section { margin-bottom: 20px; }
-                .collapsible { cursor: pointer; padding: 10px; background: #f0f0f0; }
-                .content { display: none; padding: 10px; }
-                .step { margin: 10px 0; }
-                a { color: #0066cc; }
-            </style>
-        </head>
-        <body>
-            <h1>Interactive Workflow Plan</h1>
-            ${marked.parse(workflow)}
-            <script>
-                document.querySelectorAll('.collapsible').forEach(button => {
-                    button.addEventListener('click', () => {
-                        const content = button.nextElementSibling;
-                        content.style.display = content.style.display === 'none' ? 'block' : 'none';
-                    });
-                });
-            </script>
-        </body>
-        </html>
-    `;
-
-  const htmlPath = path.join(tempDir, `workflow_${timestamp}.html`);
-  fs.writeFileSync(htmlPath, htmlContent);
-
-  const browser = await puppeteer.launch();
-  const page = await browser.newPage();
-  await page.goto(`file:${htmlPath}`, { waitUntil: "networkidle0" });
-
-  const pdfPath = path.join(tempDir, `planner_${timestamp}.pdf`);
-  await page.pdf({
-    path: pdfPath,
-    format: "A4",
-    printBackground: true,
-    displayHeaderFooter: true,
-    headerTemplate:
-      '<div style="font-size: 10px; text-align: right; width: 100%; padding: 5px;">AI Workflow Planner</div>',
-    footerTemplate:
-      '<div style="font-size: 10px; text-align: center; width: 100%; padding: 5px;">Page <span class="pageNumber"></span> of <span class="totalPages"></span></div>',
-  });
-
-  await browser.close();
-  fs.unlinkSync(htmlPath);
-  return pdfPath;
 }
 
 async function createExcelWorkbook(workflow, tempDir, timestamp) {
